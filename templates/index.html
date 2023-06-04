@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    BIGAMER - школа киберспорта
+{% endblock %}
+
+{% load static %}
+
+{% block header %}
+<div class="header-bg">
+{% endblock %}
+
+{% block content %}
+
+            <div class="STS-ALL">
+                <form method="POST" action="{% url 'index' %}" name="request">
+                    {% csrf_token %}
+<!--                    {{ form.as_p }}-->
+                    <div class="start-to-study">
+                        <h1 class="sts-text">Начать обучаться киберспорту</h1>
+                        <div class="forms-1">
+                            <input type="text" class="form-1" maxlength="64" name="phone" placeholder="Номер телефона" data-phone-pattern required>
+                            <input type="text" class="form-1" maxlength="64" name="name" placeholder="Имя" required>
+                        </div>
+                        <input class="sts-butt" type="submit" name="request" value="СТАТЬ КИБЕРСПОРТСМЕНОМ">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        
+
+    </header>
+
+    <div id="consultModal" class="modal-tra">
+        <div class="modal-content-tra">
+          <span class="close-tra" id="closeButton2">&times;</span>
+          <h2 class="reg-text-tra">Есть вопросы?</h2>
+          <h1 class="reg-subtext-tra">Оставьте заявку, чтобы получить консультацию.</h1>
+          <form class="reg-form-tra" method="POST" action="{% url 'index' %}">
+              {% csrf_token %}
+<!--              {{ form.as_p }}-->
+            <input class="reg-input-tra" type="text" maxlength="64" id="username" name="name" placeholder="Имя" required><br><br>
+            <input class="reg-input-tra" type="text" maxlength="64" id="username2" name="phone" placeholder="Номер телефона" data-phone-pattern required><br><br>
+            <input class="reg-butt-tra" type="submit" value="Отправить заявку" name="consultation">
+          </form>
+          <h1 class="last-text-tra">Нажимая на кнопку, ты соглашаешься с Договором Публичной Оферты и обработкой своих персональных данных.</h1>
+        </div>
+      </div>
+
+    <div id="enterModal" class="modal-tra">
+        <div class="modal-content-tra">
+          <span class="close-tra" id="closeButton">&times;</span>
+          <h2 class="reg-text-tra">Записаться на тренировку</h2>
+          <h1 class="reg-subtext-tra">Мечтаешь пробиться в киберспорт? Запишись на обучение к лучшим тренерам и начни идти к цели уже сегодня!</h1>
+          <form class="reg-form-tra">
+            <input class="reg-input-tra" type="text" id="username" maxlength="64" name="name" placeholder="Имя" required><br><br>
+            <input class="reg-input-tra" type="text" id="username2" maxlength="64" name="phone" placeholder="Номер телефона" data-phone-pattern required><br><br>
+            <input class="reg-butt-tra" type="submit" value="Записаться">
+          </form>
+          <h1 class="last-text-tra">Нажимая на кнопку, ты соглашаешься с Договором Публичной Оферты и обработкой своих персональных данных.</h1>
+        </div>
+      </div>
+
+
+    <main>
+        <div class="main-bg {% if user.is_authenticated %}{% else %}height-2507{% endif %}">
+            <div class="info-1">
+                <div class="info-1-1">
+                    <img class="ppko-img" src="{% static 'img/BIGAMER.png' %}" alt="">
+                    <h1 class="ppko-text">ПРАВИЛЬНЫЙ ПОДХОД К ОБУЧЕНИЮ</h1>
+                </div>
+                <div class="info-1-2">
+                    <div class="info-1-2-1">
+                        <h1 class="info-1-2-1-text">Для того, чтобы достигать высоких результатов в сфере киберспорта, необходимо не просто играть, а систематически тренироваться и изменить подход к игре, как к спорту.</h1>
+                    </div>
+                    <img class="info-1-2-img" src="{% static 'img/logo.png' %}" alt="">
+                    <div class="info-1-2-2">
+                        <h1 class="info-1-2-1-text">Мы, уникальная киберспортивная академия и наша цель - создать все необходимые условия для качественных тренировок и быстрого роста навыков наших учеников.</h1>
+                    </div>
+                </div>
+            </div>
+        <div class="choose-game">
+            <div class="choose-game-info">
+                <h1 class="choose-game-info-text-1">ВЫБЕРИТЕ ИГРОВУЮ ДИСЦИПЛИНУ, В КОТОРОЙ ХОТИТЕ РАЗВИВАТЬСЯ</h1>
+                <h1 class="choose-game-info-text-2">ОБУЧЕНИЕ DOTA 2, CS:GO, FORTNITE.</h1>
+            </div>
+            <div class="choose-game-imgs">
+                <div class="choose-game-cs">
+                    <div class="choose-game-text-line">
+                        <a class="choose-game-a" href="{% url 'csgo' %}"></a>
+                        <div class="dj">
+                            <h1 class="choose-game-text-1">Тренировки по CS:GO</h1>
+                            <div class="choose-game-line"></div>
+                            <h1 class="choose-game-text-2"></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="choose-game-dota">
+                    <div class="choose-game-text-line">
+                        <a class="choose-game-a" href="{% url 'dota' %}"></a>
+                        <div class="dj">
+                            <h1 class="choose-game-text-1">Тренировки по Dota 2</h1>
+                            <div class="choose-game-line"></div>
+                            <h1 class="choose-game-text-2"></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="choose-game-fortnite">
+                    <div class="choose-game-text-line">
+                        <a class="choose-game-a" href="{% url 'fortnite' %}"></a>
+                        <div class="dj">
+                            <h1 class="choose-game-text-1">Тренировки по Fortnite</h1>
+                            <div class="choose-game-line"></div>
+                            <h1 class="choose-game-text-2"></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+            {% if user.is_authenticated %}
+            <div class="form-bc ">
+                <div class="form-bc-info">
+                    <h1 class="form-bc-info-text-1">Обратная связь</h1>
+                    <h1 class="form-bc-info-text-2">Поделитесь мнением о нашей  работе или задайте нам любой интересующий вас вопрос в поле сообщение</h1>
+                </div>
+                <div class="form-bc-line"></div>
+
+                <form class="form-bc-enter" action="{% url 'index' %}" method="POST" name="feedback">
+                    {% csrf_token %}
+<!--                    {{ form.as_p }}-->
+                    <input type="text" class="form-bc-name form-bc-all" maxlength="64" name="name" placeholder="Укажите ваше имя" required>
+
+                    <input type="email" class="form-bc-email form-bc-all" maxlength="128" name="mail" placeholder="Укажите ваш Email" required>
+
+                    <textarea class="form-bc-comment form-bc-all" maxlength="256" name="message" rows="1" placeholder="Введите ваше сообщение" required></textarea>
+
+                    <input class="form-bc-butt" type="submit" name="feedback" value="Отправить">
+                  </form>
+            </div>
+            {% else %}
+            <h1 class="auth-to-form"> АВТОРИЗИРУЙТЕСЬ, ЧТОБЫ ЗАПОЛНИТЬ ФОРМУ ОБРАТНОЙ СВЯЗИ</h1>
+            {% endif %}
+    </main>
+
+    <footer>
+        <div class="footer">
+        <div class="all-foot">
+                <div class="foot-about">
+                    <h1 class="foot-text-1">О НАС</h1>
+                    <a class="foot-text-2" href="{% url 'index' %}">Главная</a>
+                    <a class="foot-text-2" href="{% url 'about' %}">Об академии</a>
+                </div>
+                <div class="foot-trainings">
+                    <h1 class="foot-text-1">ТРЕНИРОВКИ</h1>
+                    <a class="foot-text-2" href="{% url 'csgo' %}">Дисциплина CS:GO</a>
+                    <a class="foot-text-2" href="{% url 'dota' %}">Дисциплина Dota 2</a>
+                    <a class="foot-text-2" href="f{% url 'fortnite' %}">Дисциплина Fortnite</a>
+                </div>
+                <div class="foot-subscribe">
+                    <h1 class="foot-text-1">ПОДПИСАТЬСЯ</h1>
+                    <form class="foot-subscribe-form" method="POST">
+                        {% csrf_token %}
+                        <input type="email" class="foot-subscribe-mail" maxlength="128" name="mail" placeholder="Ваш Email" required>
+                        <input class="foot-subscribe-butt" type="submit" value="▶">
+                    </form>
+                    <h1 class="foot-text-3">Подпишитесь и узнайте о наших скидках, акциях, розыгрышах и интересных событиях!</h1>
+                    <img class="foot-subscribe-img" src="{% static 'img/copyright.png' %}" alt="">
+                </div>
+        </div>
+        </div>
+    </footer>
+    <script src="{% static 'script.js' %}"></script>
+    <script src="{% static 'regModalScript.js' %}"></script>
+    <script src="{% static 'signin.js' %}"></script>
+    <script src="{% static 'consultModal.js' %}"></script>
+    <script>
+        var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.arrayIteratorImpl=function(a){var b=0;return function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}}};$jscomp.arrayIterator=function(a){return{next:$jscomp.arrayIteratorImpl(a)}};$jscomp.makeIterator=function(a){var b="undefined"!=typeof Symbol&&Symbol.iterator&&a[Symbol.iterator];return b?b.call(a):$jscomp.arrayIterator(a)};
+        document.addEventListener("DOMContentLoaded",function(){var a=function(e){var c=e.target,n=c.dataset.phoneClear;c=(c=c.dataset.phonePattern)?c:"+7(___) ___-__-__";var g=0,k=c.replace(/\D/g,""),d=e.target.value.replace(/\D/g,"");"false"!==n&&"blur"===e.type&&d.length<c.match(/([_\d])/g).length?e.target.value="":(k.length>=d.length&&(d=k),e.target.value=c.replace(/./g,function(l){return/[_\d]/.test(l)&&g<d.length?d.charAt(g++):g>=d.length?"":l}))},b=document.querySelectorAll("[data-phone-pattern]");
+        b=$jscomp.makeIterator(b);for(var f=b.next();!f.done;f=b.next()){f=f.value;for(var m=$jscomp.makeIterator(["input","blur","focus"]),h=m.next();!h.done;h=m.next())f.addEventListener(h.value,a)}});
+    </script>
+    <script>
+      function validatePassword() {
+        var password = document.getElementById('username4').value;
+        var passwordPattern = /^(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+
+        if (!passwordPattern.test(password)) {
+          // Пароль не соответствует требованиям
+          document.getElementById('password-error').style.display = 'block';
+          return false;
+        }
+
+        return true;
+      }
+    </script>
+
+
+{% endblock %}

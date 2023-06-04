@@ -1,0 +1,492 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Дисциплина Fortnite
+{% endblock %}
+
+{% load static %}
+
+{% block header %}
+<div class="header-bg-fortnite">
+{% endblock %}
+
+{% block content %}
+            <div class="all-cs">
+                <div class="cs-connect-questions">
+
+                    <div class="cs-connect">
+                        <div class="cs-connect-text-div">
+                            <h1 class="cs-connect-text-1">ЭФФЕКТИВНЫЕ</h1>
+                            <h1 class="cs-connect-text-1">ТРЕНИРОВКИ ПО CS:GO</h1>
+                        </div>
+                        <h1 class="cs-connect-text-2">Пройди обучение с опытным тренером, прокачай скилл и стань профессиональным киберспортсменом!</h1>
+                        <button id="enterButton" class="cs-connect-butt enterButton">ПРИСОЕДЕНИТЬСЯ К ТРЕНИРОВКАМ</buttom>
+                    </div>
+
+                    <div class="cs-questions">
+
+                            <div class="cs-questions-one">
+                                <h1 class="cs-questions-text-1">КОГДА?</h1>
+                                <div class="cs-questions-line"></div>
+                                <h1 class="cs-questions-text-2">Сейчас проходит набор</h1>    
+                            </div>
+
+                            <div class="cs-questions-one">
+                                <h1 class="cs-questions-text-1">ФОРМАТ</h1>
+                                <div class="cs-questions-line"></div>
+                                <h1 class="cs-questions-text-2">Оффлайн и онлайн в режиме реального времени</h1>    
+                            </div>
+
+                            <div class="cs-questions-one">
+                                <h1 class="cs-questions-text-1">РАСПИСАНИЕ</h1>
+                                <div class="cs-questions-line"></div>
+                                <h1 class="cs-questions-text-2">2 р. в неделю по 3 ч. в группах по 10 человек</h1>    
+                            </div>
+
+                    </div>
+
+                </div>
+                <img class="cs-img" src="{% static 'img/fortnite_fortnite.png' %}" alt="">
+            </div>
+        </div>
+
+        
+
+    </header>
+
+    <div id="enterModal" class="modal-tra">
+        <div class="modal-content-tra">
+          <span class="close-tra" id="closeButton">&times;</span>
+          <h2 class="reg-text-tra">Записаться на тренировку</h2>
+          <h1 class="reg-subtext-tra">Мечтаешь пробиться в киберспорт? Запишись на обучение к лучшим тренерам и начни идти к цели уже сегодня!</h1>
+          <form class="reg-form-tra" method="POST" action="{% url 'fortnite' %}">
+              {% csrf_token %}
+              {{ form.as_p }}
+            <input class="reg-input-tra" type="text" id="username" maxlength="64" name="name" placeholder="Имя" required><br><br>
+            <input class="reg-input-tra" type="text" id="username2" maxlength="64" name="phone" placeholder="Номер телефона" data-phone-pattern required><br><br>
+            <input class="reg-butt-tra" type="submit" value="Записаться" name="join">
+          </form>
+          <h1 class="last-text-tra">Нажимая на кнопку, ты соглашаешься с Договором Публичной Оферты и обработкой своих персональных данных.</h1>
+        </div>
+      </div>
+
+      <div id="consultModal" class="modal-tra">
+        <div class="modal-content-tra">
+          <span class="close-tra" id="closeButton2">&times;</span>
+          <h2 class="reg-text-tra">Есть вопросы?</h2>
+          <h1 class="reg-subtext-tra">Оставьте заявку, чтобы получить консультацию.</h1>
+          <form class="reg-form-tra" method="POST" action="{% url 'fortnite' %}">
+              {% csrf_token %}
+              {{ form.as_p }}
+            <input class="reg-input-tra" type="text" maxlength="64" id="username" name="name" placeholder="Имя" required><br><br>
+            <input class="reg-input-tra" type="text" maxlength="64" id="username2" name="phone" placeholder="Номер телефона" data-phone-pattern required><br><br>
+            <input class="reg-butt-tra" type="submit" value="Отправить заявку"  name="consultation">
+          </form>
+          <h1 class="last-text-tra">Нажимая на кнопку, ты соглашаешься с Договором Публичной Оферты и обработкой своих персональных данных.</h1>
+        </div>
+      </div>      
+
+    <main>
+        <div class="main-bg-fortnite">
+
+            <div class="condition">
+                <div class="condition-texts">
+                    <h1 class="condition-text-1">СОЗДАЁМ УСЛОВИЯ ДЛЯ ПРОДУКТИВНОГО РОСТА В КИБЕРСПОРТЕ!</h1>
+                    <h1 class="condition-text-2">ОБУЧАЯСЬ У НАС, ВЫ ПОЛУЧИТЕ:</h1>    
+                </div>
+                <div class="condition-blocks-all">
+                    <div class="condition-blocks-3">
+
+                        <div class="condition-block">
+                            <img class="condition-block-img" src="{% static 'img/condition1.png' %}" alt="">
+                            <h1 class="condition-block-text">Тренировки с опытным тренером, как у про команд</h1>
+                        </div>
+
+                        <div class="condition-block">
+                            <img class="condition-block-img" src="{% static 'img/condition2.png' %}" alt="">
+                            <h1 class="condition-block-text">Эффективную программу обучения и материалы</h1>
+                        </div>
+
+                        <div class="condition-block">
+                            <img class="condition-block-img" src="{% static 'img/condition3.png' %}" alt="">
+                            <h1 class="condition-block-text">Тренинги по спортивной и игровой психологии</h1>
+                        </div>
+
+                    </div>
+
+                    <div class="condition-blocks-3">
+
+                        <div class="condition-block">
+                            <img class="condition-block-img" src="{% static 'img/condition4.png' %}" alt="">
+                            <h1 class="condition-block-text">Команду по уровню игры с общими целями</h1>
+                        </div>
+
+                        <div class="condition-block">
+                            <img class="condition-block-img" src="{% static 'img/condition5.png' %}" alt="">
+                            <h1 class="condition-block-text">Турниры с денежными призовыми среди учеников</h1>
+                        </div>
+
+                        <div class="condition-block">
+                            <img class="condition-block-img" src="{% static 'img/condition6.png' %}" alt="">
+                            <h1 class="condition-block-text">Продвижение и возможность попасть в состав академии</h1>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>  
+            
+            <div class="course-goal">
+                <div class="course-goal-line-text">
+                    <div class="course-goal-line"></div>
+                    <h1 class="course-goal-text-1">ЦЕЛЬ КУРСА</h1>
+                    <h1 class="course-goal-text-2">Помочь тебе забирать PR очки и призовые с турниров, посредством интенсивных тренировок аима, редакта, стройки, пис контроля; научить тебя коммуницировать с командой, правильно файтиться, не терять контроль во время важных схваток, эффективно отыгрывать на всех стадиях игры (Early, Mid, Late game).</h1>
+                </div>
+            </div>
+
+            <div class="best">
+                <h1 class="best-1">УЧИСЬ У ЛУЧШИХ, СТАНОВИСЬ ЛУЧШИМ!</h1>
+                <h1 class="best-2">ТРЕНЕРСКИЙ СОСТАВ</h1>
+            </div>
+
+            <div class="trainer-cs-all">
+                <div class="trainer-cs">
+                    <div class="trainer-cs-line-1"></div>
+
+                    <div class="trainer">
+
+                        <div class="trainer-info-1">
+                            <div class="trainer-info-right">
+                                <div class="trainer-info-1-gradient">
+                                    <h1 class="trainer-info-1-gradient-text">ТРЕНЕР ПО FORTNITE</h1>
+                                </div>
+                                <h1 class="trainer-info-1-text-1">ВЛАДИМИР МЕЛЬНИЧЕНКО, 25 лет</h1>
+                                <h1 class="trainer-info-1-text-2">Опытный игрок в Fortnite, играет с 1-го сезона. Киберспорт был мечтой с самого детства и продолжает занимать место №1 в его жизни. Самому младшему его ученику - 5.5 лет, а старшему - 32. Хобби - фанстатика, аниме, стриминг.</h1>    
+                            </div>
+                            <button class="trainer-info-1-butt enterButton">ЗАПИСАТЬСЯ</button>
+                        </div>
+
+                        <img class="trainer-img" src="{% static 'img/trainer3.png' %}" alt="">
+                    
+                        <div class="trainer-info-2">
+                            <div class="trainer-info-right-2">
+                                <div class="trainer-info-2-gradient">
+                                    <h1 class="trainer-info-1-gradient-text">>6800 PR, 23 000 POINTS</h1>
+                                </div>
+                                <h1 class="trainer-info-1-text-1">ДОСТИЖЕНИЯ</h1>
+                                <h1 class="trainer-info-1-text-2-2">Высокий индивидуальный уровень игры</h1>
+                                <h1 class="trainer-info-1-text-2-2">Призовые места на FSL Duo 1,2,3</h1>
+                                <h1 class="trainer-info-1-text-2-2">ТОП-2  Росии по рейтингу Fortnite Tracker</h1>
+                                <h1 class="trainer-info-1-text-2-2">Призер многих онлайн турниров таких как FSL, Shotgun Masters и др.</h1>
+                                <h1 class="trainer-info-1-text-2-2">2 года опыта тренерства</h1>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="trainer-lines-wth-info">
+                        <h1 class="trainer-lines-wth-info-text">Киберспорт - это способ доказать и показать свое мастерство, меня привлекает сама атмосфера соперничества между игроками со всего мира, а также это отличный источник дохода. Обучение киберспортивным дисциплинам - это отличный способ оперативно получить знания, навыки и умения, которые помогут развиваться в игре на профессиональном уровне.”</h1>
+                    </div>
+
+                    <!-- <div style="width: 100%; height: 134px; position: relative; display: flex; align-items: center; justify-content: center;">
+                        <img style="width: 100%; height: 100%; position: absolute;" src="img/lines.png" alt="">
+                        <h1 class="trainer-lines-wth-info-text">Для меня тренерство – это возможность донести опыт, приобретенный за долгое время, для того, чтобы помочь начинающим игрокам развиваться в CS:GO, а также донести определенную культуру игры. Также это стимул для развития себя в плане личностных качеств и в плане мышления в самой игре.</h1>
+                    </div> -->
+                    
+                    <div class="trainer-cs-line-2"></div>
+                </div>
+            </div>
+
+                            {% if user.is_authenticated %}
+            <form class="feedback-form" method="POST" name="" action="{% url 'fortnite' %}">
+                {% csrf_token %}
+                <h1 class="feedback-form__title">Оставить отзыв</h1>
+                <textarea class="feedback-form__input" type="text" rows="1" maxlength="128" name="message" placeholder="Напишите отзыв" required></textarea>
+                <button type="submit" class="feedback-form__button" name="comment">Отправить</button>
+                <input type="hidden" name="name" value="{{ user.name }}">
+            </form>
+            {% else %}
+            <h1 class="feedback-unauthenticated">АВТОРИЗИРУЙТЕСЬ, ЧТОБЫ ОСТАВИТЬ ОТЗЫВ</h1>
+            {% endif %}
+
+            <h1 class="feedbacks-title__title">Отзывы</h1>
+
+            {% if comms|length == 0 %}
+                <div class="text-center">
+                    <h6 class="h6">Отзывов пока нет</h6>
+                </div>
+            {% else %}
+
+
+            <div class="feedbacks">
+            {% for item in comms %}
+                <div class="feedbacks__one">
+                    <div class="feedbacks__name-date">
+                        <h1 class="feedbacks__name"><span style="font-weight: 400; font-style: normal;">От: &nbsp&nbsp</span>{{item.name}}</h1>
+                        <h1 class="feedbacks__date"><span style="font-weight: 400;">Оставлен: &nbsp&nbsp</span>{{item.date}}</h1>
+                    </div>
+                    <h1 class="feedbacks__comment"><span style="font-size: 24px; font-weight: 600; font-style: normal;">"</span>{{item.message}}<span style="font-size: 24px; font-weight: 600; font-style: normal;">"</span></h1>
+                    <hr>
+                </div>
+            {% endfor %}
+            </div>
+
+            {% endif %}
+
+            <div class="tarifs">
+
+                <div class="best">
+                    <h1 class="best-1">НАЧНИ ПРОГРЕССИРОВАТЬ УЖЕ СЕГОДНЯ</h1>
+                    <h1 class="best-2">НАШИ ТАРИФЫ</h1>
+                </div>
+
+                <div class="group-trainings-all">
+                    <div class="group-trainings">
+                        <div class="group-trainings-text-png">
+                            <img class="group-trainings-png" src="{% static 'img/group.png' %}" alt="">
+                            <h1 class="group-trainings-text">ГРУППОВЫЕ ТРЕНИРОВКИ</h1>
+                        </div>
+                        <h1 class="group-trainings-text-2">Занятия проходят в малокомплектных группах по 10 человек, в онлайн формате, в режиме реального времени с тренером/психологом. Длительность одной тренировки - 3 часа. Группы формируются по уровню игры и возрасту. В академии предусмотрен удобный график, в будние с 17.00-20.00, в выходные - в течении дня.</h1>
+                    </div>
+                </div>
+
+                <div class="tarifeses-all">
+                    <div class="tarifeses">
+                        <div class="tarifeses-1">
+                            <h1 class="tarifeses-1-text-1">1 МЕСЯЦ</h1>
+                            <h1 class="tarifeses-1-text-2">Помесячная оплата</h1>
+                            <div class="tarifeses-1-img-all">
+                                <!-- /*Вот это*/ -->
+                                <div class="tarifeses-1-all-info">
+                                    <div class="tarifeses-1-gradient">
+                                        <h1 class="tarifeses-1-gradient-text">3000 руб.</h1>
+                                    </div>
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">8 тренировок, 24 часа</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">20 ч. занятий с тренером</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info" >
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">4 ч. занятий с психологом</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">8 домашних заданий</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">1 турнир с призовыми</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info" >
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">Бесплатное участие в мастер-классах и ивентах</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">Закрытый чат группы с поддержкой наставников</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">Онлайн сертификат о прохождении всего курса</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">Возможность отработки пропущенных занятий</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">Характеристика ученика от тренера и психолога</h1>
+                                    </div>
+
+                                    <button class="connect-to-group-butt-1 enterButton">ПРИСОЕДЕНИТЬСЯ К ГРУППЕ</button>
+
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="tarifeses-2">
+                            <h1 class="tarifeses-1-text-1">★ 4 МЕСЯЦА</h1>
+                            <h1 class="tarifeses-1-text-2">Прохождение ступени курса</h1>
+                            <div class="tarifeses-2-img-all">
+                                <!-- /*Вот это*/ -->
+                                <div class="tarifeses-2-all-info">
+                                    <h1 class="most-popular">САМЫЙ ПОПУЛЯРНЫЙ ВЫБОР</h1>
+                                    <div class="tarifeses-2-gradient">
+                                        <h1 class="tarifeses-1-gradient-text">12000 руб.</h1>
+                                    </div>
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">32 тренировок, 96 часа</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">80 ч. занятий с тренером</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info" >
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">16ч. занятий с психологом</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">32 домашних заданий</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">4 турнир с призовыми</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info" >
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">Бесплатное участие в мастер-классах и ивентах</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">Закрытый чат группы с поддержкой наставников</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">Онлайн сертификат о прохождении всего курса</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">Возможность отработки пропущенных занятий</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">Характеристика ученика от тренера и психолога</h1>
+                                    </div>
+
+                                    <button class="connect-to-group-butt-2  enterButton" enterButton>ПРИСОЕДЕНИТЬСЯ К ГРУППЕ</button>
+
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="tarifeses-3">
+                            <h1 class="tarifeses-1-text-1">12 МЕСЯЦЕВ</h1>
+                            <h1 class="tarifeses-1-text-2">Полное прохождение программы курса</h1>
+                            <div class="tarifeses-3-img-all">
+                                <!-- /*Вот это*/ -->
+                                <div class="tarifeses-1-all-info">
+                                    <div class="tarifeses-1-gradient">
+                                        <h1 class="tarifeses-1-gradient-text">36000 руб.</h1>
+                                    </div>
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">96 тренировок, 288 часа</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">80 ч. занятий с тренером</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info" >
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">48 ч. занятий с психологом</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">96 домашних заданий</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">12 турниров с призовыми</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info" >
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">Бесплатное участие в мастер-классах и ивентах</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">Закрытый чат группы с поддержкой наставников</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">Онлайн сертификат о прохождении всего курса</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">Возможность отработки пропущенных занятий</h1>
+                                    </div>
+
+                                    <div class="tarifeses-1-one-info">
+                                        <img class="kubok" src="{% static 'img/kubok.png' %}" alt="">
+                                        <h1 class="tarifeses-1-one-info-text">Характеристика ученика от тренера и психолога</h1>
+                                    </div>
+
+                                    <button class="connect-to-group-butt-3 enterButton">ПРИСОЕДЕНИТЬСЯ К ГРУППЕ</button>
+
+                                </div>
+                         </div>
+                      </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+
+    <footer>
+        <div class="footer">
+        <div class="all-foot">
+                <div class="foot-about">
+                    <h1 class="foot-text-1">О НАС</h1>
+                    <a class="foot-text-2" href="{% url 'index' %}">Главная</a>
+                    <a class="foot-text-2" href="{% url 'about' %}">Об академии</a>
+                </div>
+                <div class="foot-trainings">
+                    <h1 class="foot-text-1">ТРЕНИРОВКИ</h1>
+                    <a class="foot-text-2" href="{% url 'csgo' %}">Дисциплина CS:GO</a>
+                    <a class="foot-text-2" href="{% url 'dota' %}">Дисциплина Dota 2</a>
+                    <a class="foot-text-2" href="{% url 'fortnite' %}">Дисциплина Fortnite</a>
+                </div>
+                <div class="foot-subscribe">
+                    <h1 class="foot-text-1">ПОДПИСАТЬСЯ</h1>
+                    <form class="foot-subscribe-form" action="">
+                        <input type="email" class="foot-subscribe-mail" maxlength="128" name="mail" placeholder="Ваш Email" required>
+                        <input class="foot-subscribe-butt" type="submit" value="▶">
+                    </form>
+                    <h1 class="foot-text-3">Подпишитесь и узнайте о наших скидках, акциях, розыгрышах и интересных событиях!</h1>
+                    <img class="foot-subscribe-img" src="{% static 'img/copyright.png' %}" alt="">
+                </div>
+        </div>
+        </div>
+    </footer>
+    <script src="{% static 'script.js' %}"></script>
+    <script src="{% static 'regModalScript.js' %}"></script>
+    <script src="{% static 'signin.js' %}"></script>
+    <script src="{% static 'consultModal.js' %}"></script>
+    <script>
+        var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.arrayIteratorImpl=function(a){var b=0;return function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}}};$jscomp.arrayIterator=function(a){return{next:$jscomp.arrayIteratorImpl(a)}};$jscomp.makeIterator=function(a){var b="undefined"!=typeof Symbol&&Symbol.iterator&&a[Symbol.iterator];return b?b.call(a):$jscomp.arrayIterator(a)};
+        document.addEventListener("DOMContentLoaded",function(){var a=function(e){var c=e.target,n=c.dataset.phoneClear;c=(c=c.dataset.phonePattern)?c:"+7(___) ___-__-__";var g=0,k=c.replace(/\D/g,""),d=e.target.value.replace(/\D/g,"");"false"!==n&&"blur"===e.type&&d.length<c.match(/([_\d])/g).length?e.target.value="":(k.length>=d.length&&(d=k),e.target.value=c.replace(/./g,function(l){return/[_\d]/.test(l)&&g<d.length?d.charAt(g++):g>=d.length?"":l}))},b=document.querySelectorAll("[data-phone-pattern]");
+        b=$jscomp.makeIterator(b);for(var f=b.next();!f.done;f=b.next()){f=f.value;for(var m=$jscomp.makeIterator(["input","blur","focus"]),h=m.next();!h.done;h=m.next())f.addEventListener(h.value,a)}});
+    </script>
+{% endblock %}

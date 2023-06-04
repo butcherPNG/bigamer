@@ -1,0 +1,247 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Об организации
+{% endblock %}
+
+{% load static %}
+
+{% block header %}
+<div class="header-bg-about">
+{% endblock %}
+
+{% block content %}
+            <div class="number-one">
+                <img class="number-one-img" src="{% static 'img/no1.png' %}" alt="">
+                <div class="number-one-texts-1">
+                    <h1 class="number-one-text-1">Лучшая</h1>
+                    <h1 class="number-one-text-1">академия киберспорта</h1>
+                </div>
+                <h1 class="number-one-text-2">Пройдите путь от аматора до профессионала вместе с нашей командой опытных наставников!</h1>
+            </div>
+        </div>
+
+        
+
+    </header>
+    <div id="enterModal" class="modal-tra">
+        <div class="modal-content-tra">
+          <span class="close-tra" id="closeButton">&times;</span>
+          <h2 class="reg-text-tra">Записаться на тренировку</h2>
+          <h1 class="reg-subtext-tra">Мечтаешь пробиться в киберспорт? Запишись на обучение к лучшим тренерам и начни идти к цели уже сегодня!</h1>
+          <form class="reg-form-tra" method="POST" action="{% url 'about' %}">
+              {% csrf_token %}
+              {{ form.as_p }}
+            <input class="reg-input-tra" type="text" id="username" maxlength="64" name="name" placeholder="Имя" required><br><br>
+            <input class="reg-input-tra" type="text" id="username2" maxlength="64" name="phone" placeholder="Номер телефона" data-phone-pattern required><br><br>
+            <input class="reg-butt-tra" type="submit" value="Записаться">
+          </form>
+          <h1 class="last-text-tra">Нажимая на кнопку, ты соглашаешься с Договором Публичной Оферты и обработкой своих персональных данных.</h1>
+        </div>
+      </div>
+
+      <div id="consultModal" class="modal-tra">
+        <div class="modal-content-tra">
+          <span class="close-tra" id="closeButton2">&times;</span>
+          <h2 class="reg-text-tra">Есть вопросы?</h2>
+          <h1 class="reg-subtext-tra">Оставьте заявку, чтобы получить консультацию.</h1>
+          <form class="reg-form-tra" method="POST" action="{% url 'about' %}">
+              {% csrf_token %}
+              {{ form.as_p }}
+            <input class="reg-input-tra" type="text" maxlength="64" id="username" name="name" placeholder="Имя" required><br><br>
+            <input class="reg-input-tra" type="text" maxlength="64" id="username2" name="phone" placeholder="Номер телефона" data-phone-pattern required><br><br>
+            <input class="reg-butt-tra" type="submit" value="Отправить заявку"  name="consultation">
+          </form>
+          <h1 class="last-text-tra">Нажимая на кнопку, ты соглашаешься с Договором Публичной Оферты и обработкой своих персональных данных.</h1>
+        </div>
+      </div>
+
+
+    <main>
+        <div class="main-bg-about">
+            <div class="bigamer-info-about">
+                <div class="bigamer-info-about-all">
+                    <div class="bigamer-info-about-line"></div>
+                    <h1 class="bigamer-info-about-text">BI<span class="highlight-letter">G</span>AMER - киберспортивная  академия, которая создана с целью обучения и продвижения игроков, мечтающих пробиться на PRO-сцену. Главной особенностью академии, является интерактивный формат обучения. Никаких видеозаписей уроков, только полное вовлечение в учебный процесс!</h1>
+                    <img class="bigamer-info-about-img" src="{% static 'img/cup.png' %}" alt="">
+                </div>
+            </div>
+
+            <div class="missions-goals">
+                <h1 class="missions-goals-text">ЦЕЛИ И МИССИИ АКАДЕМИИ</h1>
+                <div class="missions-goals-all">
+                    <div class="missions-goals-one">
+                        <img class="missions-goals-one-img" src="{% static 'img/goal1.png' %}" alt="">
+                        <h1 class="missions-goals-one-text">Популяризировать обучение киберспорту</h1>
+                    </div>
+
+                    <div class="missions-goals-one">
+                        <img class="missions-goals-one-img" src="{% static 'img/goal2.png' %}" alt="">
+                        <h1 class="missions-goals-one-text">Дать качественную систему тренировок</h1>
+                    </div>
+
+                    <div class="missions-goals-one">
+                        <img class="missions-goals-one-img" src="{% static 'img/goal3.png' %}" alt="">
+                        <h1 class="missions-goals-one-text">Упростить и ускорить путь на про-сцену</h1>
+                    </div>
+
+                    <div class="missions-goals-one adapt-mg-1">
+                        <img class="missions-goals-one-img " src="{% static 'img/goal4.png' %}" alt="">
+                        <h1 class="missions-goals-one-text">Привить здоровый подход к игре как к спорту</h1>
+                    </div>
+
+                    <div class="missions-goals-one adapt-mg-2">
+                        <img class="missions-goals-one-img " src="{% static 'img/goal5.png' %}" alt="">
+                        <h1 class="missions-goals-one-text">Увеличить количество про- игроков</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bigamer-info-about bia-margin">
+                <div class="bigamer-info-about-all">
+                    <div class="bigamer-info-about-line"></div>
+                    <h1 class="bigamer-info-about-text">
+                        Помочь раскрыть потенциал каждому, кто стремится реализовать себя в киберспорте, оказывая поддержку и предоставляя возможности для всестороннего развития.</h1>
+                    <img class="bigamer-info-about-img-2" src="{% static 'img/list.png' %}" alt="">
+                </div>
+            </div>
+
+            <div class="condition">
+                <div class="condition-texts">
+                    <h1 class="condition-text-1">СОЗДАЁМ УСЛОВИЯ ДЛЯ ПРОДУКТИВНОГО РОСТА В КИБЕРСПОРТЕ!</h1>
+                    <h1 class="condition-text-2">ОБУЧАЯСЬ У НАС, ВЫ ПОЛУЧИТЕ:</h1>    
+                </div>
+                <div class="condition-blocks-all">
+                    <div class="condition-blocks-3">
+
+                        <div class="condition-block">
+                            <img class="condition-block-img" src="{% static 'img/condition1.png' %}" alt="">
+                            <h1 class="condition-block-text">Тренировки с опытным тренером, как у про команд</h1>
+                        </div>
+
+                        <div class="condition-block">
+                            <img class="condition-block-img" src="{% static 'img/condition2.png' %}" alt="">
+                            <h1 class="condition-block-text">Эффективную программу обучения и материалы</h1>
+                        </div>
+
+                        <div class="condition-block">
+                            <img class="condition-block-img" src="{% static 'img/condition3.png' %}" alt="">
+                            <h1 class="condition-block-text">Тренинги по спортивной и игровой психологии</h1>
+                        </div>
+
+                    </div>
+
+                    <div class="condition-blocks-3">
+
+                        <div class="condition-block">
+                            <img class="condition-block-img" src="{% static 'img/condition4.png' %}" alt="">
+                            <h1 class="condition-block-text">Команду по уровню игры с общими целями</h1>
+                        </div>
+
+                        <div class="condition-block">
+                            <img class="condition-block-img" src="{% static 'img/condition5.png' %}" alt="">
+                            <h1 class="condition-block-text">Турниры с денежными призовыми среди учеников</h1>
+                        </div>
+
+                        <div class="condition-block">
+                            <img class="condition-block-img" src="{% static 'img/condition6.png' %}" alt="">
+                            <h1 class="condition-block-text">Продвижение и возможность попасть в состав академии</h1>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>  
+            
+            <div class="levels-all-high">
+                <div class="our-way">
+                    <h1 class="condition-text-1">НАШ ПУТЬ В КИБЕРСПОРТ!</h1>
+                    <h1 class="condition-text-2">ЦИКЛ ОБУЧЕНИЯ В АКАДЕМИИ</h1> 
+                </div> 
+
+                <div class="levels-all">
+
+                    <div class="level">
+                        <img class="level-img" src="{% static 'img/level1.png' %}" alt="">
+                        <h1 class="level-text-1">AMATEUR - I ступень</h1>
+                        <div class="level-gradient">
+                            <h1 class="level-gradient-text-1">Начинающий уровень</h1>
+                            <h1 class="level-gradient-text-1">4 месяца</h1>
+                        </div>
+                        <h1 class="level-text-2">Программа направлена на повышение индивидуального уровня игры, изучение теоретических основ, игровых понятий, механик, формирование нужных навыков. Основная цель - максимально быстро освоить теорию игры, привить базовые навыки коммуникации и работе в команде, чтобы догнать по развитию более опытных игроков.</h1>
+                    </div>
+
+                    <img class="strelka" src="{% static 'img/strelka.png' %}" alt="">
+                
+                    <div class="level">
+                        <img class="level-img" src="{% static 'img/level2.png' %}" alt="">
+                        <h1 class="level-text-1">SEMI-PRO - II ступень</h1>
+                        <div class="level-gradient-2">
+                            <h1 class="level-gradient-text-1">Средний уровень</h1>
+                            <h1 class="level-gradient-text-1">4 месяца</h1>
+                        </div>
+                        <h1 class="level-text-2">Программа включает в себя повторение и закрепление полученной ранее теоретической базы, более глубокое изучение нового материала, тонкостей игры и макросоставляющую. Последовательно повышается сложность, интенсивность и длительность выполняемых упражнений. Упор на практику, отработку новых навыков и умений.</h1>
+                    </div>
+
+                    <img class="strelka" src="{% static 'img/strelka.png' %}" alt="">
+
+                    <div class="level-3">
+                        <img class="level-img" src="{% static 'img/level3.png' %}" alt="">
+                        <h1 class="level-text-1">PRO - III ступень</h1>
+                        <div class="level-gradient-3">
+                            <h1 class="level-gradient-text-1">Высокий уровень</h1>
+                            <h1 class="level-gradient-text-1">4 месяца</h1>
+                        </div>
+                        <h1 class="level-text-2">Игровая программа высокого уровня выстраивается на основании анализа причин останавливающих дальнейший рост игроков. Обучение направлено на командную составляющую, повышение качества взаимодействия в команде и коммуникации, формирование правильной атмосферы, согласованности целей, проработку тактик и стратегий, доведения навыков до автоматизма.</h1>
+                    </div>
+
+                </div>
+
+                <div class="champion">
+                    <img class="champion-img" src="{% static 'img/logo-dragon.png' %}" alt="">
+                    <h1 class="champion-text-1">CHAMPION - IV ступень</h1>
+                    <div class="champion-gradient">
+                        <h1 class="champion-gradient-text-1">Подготовка к игре на PRO сцене</h1>
+                        <h1 class="champion-gradient-text-1">8 месяцев</h1>
+                    </div>
+                    <h1 class="champion-text-2">Вы можете продолжить обучение на IV ступени уже не в составе группы, а в составе конкретной команды, которая совместно с тренером и психологом будет стремиться выйти на профессиональную сцену и принимать участие в международных турнирах с внушительными призовыми фондами.</h1>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer">
+        <div class="all-foot">
+                <div class="foot-about">
+                    <h1 class="foot-text-1">О НАС</h1>
+                    <a class="foot-text-2" href="{% url 'index' %}">Главная</a>
+                    <a class="foot-text-2" href="{% url 'about' %}">Об академии</a>
+                </div>
+                <div class="foot-trainings">
+                    <h1 class="foot-text-1">ТРЕНИРОВКИ</h1>
+                    <a class="foot-text-2" href="{% url 'csgo' %}">Дисциплина CS:GO</a>
+                    <a class="foot-text-2" href="{% url 'dota' %}">Дисциплина Dota 2</a>
+                    <a class="foot-text-2" href="{% url 'fortnite' %}">Дисциплина Fortnite</a>
+                </div>
+                <div class="foot-subscribe">
+                    <h1 class="foot-text-1">ПОДПИСАТЬСЯ</h1>
+                    <form class="foot-subscribe-form" action="">
+                        <input type="email" class="foot-subscribe-mail" maxlength="128" name="mail" placeholder="Ваш Email" required>
+                        <input class="foot-subscribe-butt" type="submit" value="▶">
+                    </form>
+                    <h1 class="foot-text-3">Подпишитесь и узнайте о наших скидках, акциях, розыгрышах и интересных событиях!</h1>
+                    <img class="foot-subscribe-img" src="{% static 'img/copyright.png' %}" alt="">
+                </div>
+        </div>
+        </div>
+    </footer>
+    <script src="{% static 'script.js' %}"></script>
+    <script src="{% static 'regModalScript.js' %}"></script>
+    <script src="{% static 'signin.js' %}"></script>
+    <script src="{% static 'consultModal.js' %}"></script>
+    <script>
+        var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.arrayIteratorImpl=function(a){var b=0;return function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}}};$jscomp.arrayIterator=function(a){return{next:$jscomp.arrayIteratorImpl(a)}};$jscomp.makeIterator=function(a){var b="undefined"!=typeof Symbol&&Symbol.iterator&&a[Symbol.iterator];return b?b.call(a):$jscomp.arrayIterator(a)};
+        document.addEventListener("DOMContentLoaded",function(){var a=function(e){var c=e.target,n=c.dataset.phoneClear;c=(c=c.dataset.phonePattern)?c:"+7(___) ___-__-__";var g=0,k=c.replace(/\D/g,""),d=e.target.value.replace(/\D/g,"");"false"!==n&&"blur"===e.type&&d.length<c.match(/([_\d])/g).length?e.target.value="":(k.length>=d.length&&(d=k),e.target.value=c.replace(/./g,function(l){return/[_\d]/.test(l)&&g<d.length?d.charAt(g++):g>=d.length?"":l}))},b=document.querySelectorAll("[data-phone-pattern]");
+        b=$jscomp.makeIterator(b);for(var f=b.next();!f.done;f=b.next()){f=f.value;for(var m=$jscomp.makeIterator(["input","blur","focus"]),h=m.next();!h.done;h=m.next())f.addEventListener(h.value,a)}});
+    </script>
+{% endblock %}

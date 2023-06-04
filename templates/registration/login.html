@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <div id="signinModal" class="modal">
+        <div class="modal-content adapt-modal-content">
+          <span class="close2">&times;</span>
+          <h2 class="reg-text">Вход</h2>
+                {% if error %}
+                <p>{{ error }}</p>
+                {% endif %}
+          <form class="reg-form-2" action="{% url 'login' %}" method="POST" name="login">
+
+            <div class="reg-inputs">
+<input class="reg-input adapt-reg-input" type="email" id="username5" maxlength="128" name="mail" placeholder="Email" required><br><br>
+
+<input class="reg-input adapt-reg-input" type="password" id="username6" maxlength="128" name="password" placeholder="Пароль" required><br><br>
+            </div>
+
+<!--            <input class="reg-butt" type="submit" value="Вход">-->
+              <a class="reg-butt" href="{% url 'login' %}" name="login">Вход</a>
+          </form>
+        </div>
+      </div>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>
+    {% block title %}
+    {% endblock %}
+    </title>
+
+        {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/icon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 class="reg-text">Регистрация</h2>
+        <form class="reg-form" action="{% url 'index' %}" method="POST" name="register">
+            {% csrf_token %}
+            <!--            {{ form.as_div }}-->
+            <input class="reg-input" type="text" id="username" maxlength="64" name="name" placeholder="Имя"
+                   required><br><br>
+            <input class="reg-input" type="text" id="username2" maxlength="64" name="phone" placeholder="Телефон"
+                   data-phone-pattern required><br><br>
+            <input class="reg-input" type="email" id="username3" maxlength="128" name="mail" placeholder="Email"
+                   required><br><br>
+
+            <input class="reg-input" type="password" id="username4" maxlength="128" name="password"
+                   placeholder="Придумайте пароль" required>
+            <div class="form-text" id="basic-addon4"
+                 style="color: #000 !important; font-size: 12px; margin: 8px 0 16px 0 !important">Мин. 8 символов, 1
+                заглавная буква, 1 цифра, латиница
+            </div>
+
+            <button class="reg-butt" type="submit" value="Зарегистрироваться" name="register">Зарегистрироваться
+            </button>
+        </form>
+
+        <div class="have-acc">
+            <h1 class="have-acc-text-1">Уже есть аккаунт?</h1>
+
+            <button class="have-acc-text-2" data-toggle="modal" data-target="#signinModal">Вход</button>
+
+        </div>
+
+    </div>
+</div>
+
+<div id="signinModal" class="modal modal-2">
+    <div class="modal-content adapt-modal-content">
+        <span class="close" id="closeBtn2">&times;</span>
+        <h2 class="reg-text">Вход</h2>
+        {% if error %}
+        <p>{{ error }}</p>
+        {% endif %}
+        <form class="reg-form-2" action="{% url 'login' %}" method="POST" name="login">
+            {% csrf_token %}
+            <div class="reg-inputs">
+                <input class="reg-input adapt-reg-input" type="email" id="username5" maxlength="128" name="mail"
+                       placeholder="Email" required><br><br>
+
+                <input class="reg-input adapt-reg-input" type="password" id="username6" maxlength="128" name="password"
+                       placeholder="Пароль" required><br><br>
+            </div>
+
+            <button type="submit" class="reg-butt" id="signinButton" href="{% url 'login' %}">Вход</button>
+        </form>
+    </div>
+</div>
+
+    <header>
+        {% block header %}
+        {% endblock %}
+
+        <div id="error-message" class="error-message">
+            {% if form.errors %}
+                {% for field_errors in form.errors.values %}
+                    {% for error in field_errors %}
+                    <h1 class="text-danger">{{ error }}</h1>
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        <script>
+          {% if form.errors %}
+            var errorMessage = document.getElementById('error-message');
+            errorMessage.innerHTML = '<ul class="error-list">';
+            {% for field_errors in form.errors.values %}
+              {% for error in field_errors %}
+                errorMessage.innerHTML += '<li class="text-danger">{{ error }}</li>';
+              {% endfor %}
+            {% endfor %}
+            errorMessage.innerHTML += '</ul>';
+            errorMessage.style.display = 'block';
+
+            // Скрытие сообщения об ошибке через 5 секунд
+            setTimeout(function() {
+              errorMessage.style.display = 'none';
+            }, 5000);
+          {% endif %}
+        </script>
+
+
+        
+        <div id="success-message" class="success-message">
+            {% if messages %}
+                {% for message in messages %}
+                    <li {% if message.tags %} class="text-success messages {{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <script>
+            {% if messages %}
+              var successMessage = document.getElementById('success-message');
+
+              {% for message in messages %}
+              if (successMessage) {
+                successMessage.style.display = 'block';
+                {% endfor %}
+
+                setTimeout(function() {
+                  successMessage.style.display = 'none';
+                }, 5000);
+              }
+            {% endif %}
+        </script>
+
+
+
+
+            <div class="header-up">
+                <div class="header-up-left">
+                    <a href="{% url 'index' %}">
+                        <img class="header-logo-img" src="{% static 'img/header-logo.png' %}" alt="">
+                    </a>
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle header-up-left-text-main-1" type="button" data-toggle="dropdown" aria-expanded="false">
+                        О нас
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item header-up-left-text-1" href="{% url 'about' %}">Об организации</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle header-up-left-text-main-1" type="button" data-toggle="dropdown" aria-expanded="false">
+                        Тренировки
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item header-up-left-text-1" href="{% url 'csgo' %}">Дисциплина CS:GO</a>
+                          <a class="dropdown-item header-up-left-text-1" href="{% url 'dota' %}">Дисциплина Dota 2</a>
+                          <a class="dropdown-item header-up-left-text-1" href="{% url 'fortnite' %}">Дисциплина Fortnite</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="header-up-right">
+                    <button class="consultation-butt consultEnterButton">Получить консультацию</button>
+                    <div class="log-in">
+                                    {% if user.is_authenticated %}
+                                        <img class="log-in-img" src="{% static 'img/person_2.png' %}" alt="">
+                                        <h1 class="log-in-text">{{ user.name }}</h1>
+                                        <a href="{% url 'logout' %}" class="log-out-text">Выход</a>
+                                    {% else %}
+                                        <img class="log-in-img" src="{% static 'img/person_2.png' %}" alt="">
+                                        {% if user.is_authenticated %}
+                                            <div class="user-info">
+                                                <span class="user-name">{{ user.name }}</span>
+                                                <a href="{% url 'logout' %}" class="log-out-text">Выход</a>
+                                            </div>
+                                        {% else %}
+                                            <button class="log-out-text" id="registerButton">Войти</button>
+                                        {% endif %}
+                                    {% endif %}
+
+                    </div>
+
+                </div>
+            </div>
+{% block content %}
+{% endblock %}
+</body>
+</html>
